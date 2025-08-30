@@ -1,0 +1,157 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0E0A1F" />
+  <title>SHADOW — Enter the Green</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0E0A1F; --surface:#141028; --neon:#00FF73; --violet:#7A3CFF; --accent:#FF3DF6;
+      --text:#E9E7F1; --muted:#A8A1C7; --radius:28px;
+      --shadow-neon:0 0 .5rem rgba(122,60,255,.35),0 0 1.2rem rgba(0,255,115,.25);
+      --shadow-strong:0 10px 30px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{
+      margin:0; font-family:"Space Grotesk",system-ui,apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 80% -10%, rgba(122,60,255,.22), transparent 60%),
+        radial-gradient(1000px 600px at 10% 120%, rgba(0,255,115,.15), transparent 60%),
+        var(--bg);
+    }
+    a{color:var(--neon); text-decoration:none}
+    .wrap{max-width:1200px; margin:0 auto; padding:20px}
+
+    .nav{position:sticky; top:0; z-index:10; backdrop-filter:saturate(140%) blur(8px);
+      background:linear-gradient(180deg, rgba(20,16,40,.85), rgba(20,16,40,.55));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav__in{display:flex; align-items:center; justify-content:space-between; padding:14px 20px}
+    .brand{font:700 18px/1 "Archivo Black",sans-serif; letter-spacing:.4px}
+    .cta{display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:999px;
+      background:linear-gradient(90deg,var(--violet),var(--neon)); color:#0A0A0F; font-weight:700; text-transform:uppercase;
+      letter-spacing:.4px; box-shadow:var(--shadow-neon),var(--shadow-strong); transform:translateZ(0)}
+    .cta:hover{filter:saturate(120%)} .cta:active{transform:scale(.98)}
+
+    section{padding:64px 0}
+    .title{font:800 48px/1.05 "Archivo Black",sans-serif; letter-spacing:.6px; margin:0 0 16px;
+      text-shadow:0 0 18px rgba(122,60,255,.35)}
+    .desc{color:var(--muted); max-width:760px; margin:0 0 30px; font-size:18px}
+
+    .poster{position:relative; border-radius:var(--radius); overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow:var(--shadow-strong),var(--shadow-neon); border:1px solid rgba(255,255,255,.06);
+      transform-style:preserve-3d; transition:transform .3s ease, box-shadow .3s ease; will-change:transform;
+    }
+    .poster:hover{transform:perspective(1200px) rotateX(2.2deg) rotateY(-2deg) translateZ(0);
+      box-shadow:0 14px 40px rgba(0,0,0,.55),0 0 28px rgba(0,255,115,.18),0 0 20px rgba(122,60,255,.22)}
+    .poster img{display:block; width:100%; height:auto; transform:scale(1.002)}
+    .poster::after{content:""; position:absolute; inset:0; pointer-events:none;
+      background:radial-gradient(60% 80% at 50% -20%, rgba(0,255,115,.12), transparent 60%),
+                 radial-gradient(70% 60% at   0% 110%, rgba(122,60,255,.14), transparent 60%),
+                 radial-gradient(70% 60% at 100% 110%, rgba(255,61,246,.12), transparent 60%);
+      mix-blend-mode:screen;
+    }
+    .grid{display:grid; gap:28px; grid-template-columns:repeat(12,1fr)}
+    .col-12{grid-column:span 12} .col-6{grid-column:span 6}
+    @media (max-width:960px){.title{font-size:38px}.col-6{grid-column:span 12}}
+    .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease}
+    .reveal.in{opacity:1; transform:none}
+    footer{padding:56px 20px 80px; color:var(--muted); text-align:center}
+    .badge{display:inline-flex; align-items:center; gap:12px; margin-bottom:14px; padding:10px 14px; border-radius:999px;
+      background:rgba(122,60,255,.1); border:1px solid rgba(255,255,255,.08); box-shadow:inset 0 0 30px rgba(122,60,255,.08)}
+    @media (prefers-reduced-motion: reduce){.poster,.poster:hover{transform:none!important}.reveal{transition:none}}
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="nav__in wrap">
+      <div class="brand">SHADOW</div>
+      <a class="cta" href="#" aria-label="Join on X">JOIN ON X</a>
+    </div>
+  </div>
+
+  <main class="wrap">
+
+    <section aria-labelledby="s-hero">
+      <h1 id="s-hero" class="title">Enter the Green</h1>
+      <p class="desc">정지 이미지 만으로도 시네마틱—네온 글로우 포스터 카드와 미세한 틸트로 Azuki급 무드를 구현합니다.</p>
+      <div class="poster reveal col-12">
+        <img src="assets/hero.png" alt="Shadow in neon elevator saying GM">
+      </div>
+    </section>
+
+    <section aria-labelledby="s-portal">
+      <div class="grid">
+        <div class="col-6">
+          <h2 id="s-portal" class="title">Break the Wall</h2>
+          <p class="desc">갈라진 포탈 너머의 캔들 월. 카드 테두리의 보라·그린 글로우로 ‘빛이 새는’ 효과를 강조.</p>
+        </div>
+        <div class="col-6">
+          <div class="poster reveal">
+            <img src="assets/portal.png" alt="Shadow facing a green candle portal">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="s-ride">
+      <h2 id="s-ride" class="title">Surf the Candle</h2>
+      <p class="desc">움직이는 캔버스 없이도 강한 컷 하나로 임팩트. 호버 시 부드럽게 기울어지는 마이크로 인터랙션.</p>
+      <div class="poster reveal col-12">
+        <img src="assets/surfing.png" alt="Shadow surfing on a wave of green candles">
+      </div>
+    </section>
+
+    <section aria-labelledby="s-sig">
+      <div class="grid">
+        <div class="col-6">
+          <div class="poster reveal">
+            <img src="assets/signature.png" alt="Purple silhouette of Shadow glowing">
+          </div>
+        </div>
+        <div class="col-6">
+          <h2 id="s-sig" class="title">Signature</h2>
+          <p class="desc">보라 실루엣을 브랜드 락업처럼 사용하고, 아래 버튼으로 핵심 링크를 연결하세요.</p>
+          <p><a class="cta" href="#" aria-label="Primary action">Primary CTA</a></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="badge">Designed for the Shadowverse</div>
+    <div>© 2025 SHADOW. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    const posters = document.querySelectorAll('.poster');
+    posters.forEach(p=>{
+      let rect=null;
+      p.addEventListener('mouseenter',()=>rect=p.getBoundingClientRect());
+      p.addEventListener('mousemove',(ev)=>{
+        if(!rect) return;
+        const x=(ev.clientX-rect.left)/rect.width-.5;
+        const y=(ev.clientY-rect.top)/rect.height-.5;
+        const rX=(y*-4).toFixed(2), rY=(x*4).toFixed(2);
+        p.style.transform=`perspective(1200px) rotateX(${rX}deg) rotateY(${rY}deg)`;
+      });
+      p.addEventListener('mouseleave',()=>{ p.style.transform=''; });
+    });
+
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      posters.forEach(p=>{ p.onmouseenter=p.onmousemove=p.onmouseleave=null; });
+    }
+  </script>
+</body>
+</html>
